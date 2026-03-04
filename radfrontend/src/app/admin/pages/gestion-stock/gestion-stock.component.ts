@@ -620,7 +620,7 @@ export class GestionStockComponent implements OnInit {
   }
 
   chargerFournisseurs() {
-    this.http.get<any[]>('http://localhost:8080/api/fournisseurs').subscribe({
+    this.http.get<any[]>('https://final-resto.onrender.com/api/fournisseurs').subscribe({
       next: (data) => {
         this.fournisseurs = data || [];
       },
@@ -633,7 +633,7 @@ export class GestionStockComponent implements OnInit {
 
   chargerStocks() {
     this.loading = true;
-    this.http.get<any[]>('http://localhost:8080/api/stocks').subscribe({
+    this.http.get<any[]>('https://final-resto.onrender.com/api/stocks').subscribe({
       next: (data) => {
         this.stocks = data || [];
         this.loading = false;
@@ -724,8 +724,8 @@ export class GestionStockComponent implements OnInit {
     };
     
     const url = this.stockEdit 
-      ? `http://localhost:8080/api/stocks/${this.stockEdit.idStock}`
-      : 'http://localhost:8080/api/stocks';
+      ? `https://final-resto.onrender.com/api/stocks/${this.stockEdit.idStock}`
+      : 'https://final-resto.onrender.com/api/stocks';
     
     const request = this.stockEdit 
       ? this.http.put<any>(url, stockData)

@@ -562,7 +562,7 @@ export class GestionClientsComponent implements OnInit {
   }
 
   chargerClients() {
-    this.http.get<any[]>('http://localhost:8080/api/clients').subscribe({
+    this.http.get<any[]>('https://final-resto.onrender.com/api/clients').subscribe({
       next: (data) => {
         this.clients = data || [];
         this.clientsFiltres = this.clients;
@@ -648,8 +648,8 @@ export class GestionClientsComponent implements OnInit {
 
     this.loading = true;
     const url = this.clientEdit 
-      ? `http://localhost:8080/api/clients/${this.clientEdit.idClient}`
-      : 'http://localhost:8080/api/clients';
+      ? `https://final-resto.onrender.com/api/clients/${this.clientEdit.idClient}`
+      : 'https://final-resto.onrender.com/api/clients';
     
     const request = this.clientEdit 
       ? this.http.put<any>(url, this.formData)
@@ -680,7 +680,7 @@ export class GestionClientsComponent implements OnInit {
 
   confirmerSuppression() {
     if (this.clientASupprimer) {
-      this.http.delete(`http://localhost:8080/api/clients/${this.clientASupprimer}`).subscribe({
+      this.http.delete(`https://final-resto.onrender.com/api/clients/${this.clientASupprimer}`).subscribe({
         next: () => {
           this.notificationService.success('Client supprimé avec succès !');
           this.chargerClients();

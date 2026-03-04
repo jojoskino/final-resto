@@ -729,7 +729,7 @@ export class GestionUtilisateursComponent implements OnInit {
 
   chargerUtilisateurs() {
     this.loading = true;
-    this.http.get<Utilisateur[]>('http://localhost:8080/api/utilisateurs').subscribe({
+    this.http.get<Utilisateur[]>('https://final-resto.onrender.com/api/utilisateurs').subscribe({
       next: (data) => {
         this.utilisateurs = data || [];
         this.loading = false;
@@ -805,7 +805,7 @@ export class GestionUtilisateursComponent implements OnInit {
 
     if (this.utilisateurEdit) {
       // Modification
-      this.http.put(`http://localhost:8080/api/utilisateurs/${this.utilisateurEdit.idUtilisateur}`, utilisateurData).subscribe({
+      this.http.put(`https://final-resto.onrender.com/api/utilisateurs/${this.utilisateurEdit.idUtilisateur}`, utilisateurData).subscribe({
         next: (response: any) => {
           this.notificationService.success('Utilisateur mis à jour avec succès');
           this.fermerModal();
@@ -820,7 +820,7 @@ export class GestionUtilisateursComponent implements OnInit {
       });
     } else {
       // Création
-      this.http.post('http://localhost:8080/api/utilisateurs', utilisateurData).subscribe({
+      this.http.post('https://final-resto.onrender.com/api/utilisateurs', utilisateurData).subscribe({
         next: (response: any) => {
           this.notificationService.success('Utilisateur créé avec succès');
           this.fermerModal();
@@ -847,7 +847,7 @@ export class GestionUtilisateursComponent implements OnInit {
     }
 
     this.loading = true;
-    this.http.delete(`http://localhost:8080/api/utilisateurs/${this.utilisateurASupprimer.idUtilisateur}`).subscribe({
+    this.http.delete(`https://final-resto.onrender.com/api/utilisateurs/${this.utilisateurASupprimer.idUtilisateur}`).subscribe({
       next: () => {
         this.notificationService.success('Utilisateur supprimé avec succès');
         this.confirmDeleteOpen = false;

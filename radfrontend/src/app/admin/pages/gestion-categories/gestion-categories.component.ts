@@ -564,7 +564,7 @@ export class GestionCategoriesComponent implements OnInit {
   }
 
   chargerCategories() {
-    this.http.get<any[]>('http://localhost:8080/api/categories').subscribe({
+    this.http.get<any[]>('https://final-resto.onrender.com/api/categories').subscribe({
       next: (data) => {
         this.categories = data;
         this.categoriesFiltrees = data;
@@ -620,8 +620,8 @@ export class GestionCategoriesComponent implements OnInit {
 
     this.loading = true;
     const url = this.categorieEdit 
-      ? `http://localhost:8080/api/categories/${this.categorieEdit.id}`
-      : 'http://localhost:8080/api/categories';
+      ? `https://final-resto.onrender.com/api/categories/${this.categorieEdit.id}`
+      : 'https://final-resto.onrender.com/api/categories';
     
     const request = this.categorieEdit 
       ? this.http.put<any>(url, this.formData)
@@ -649,7 +649,7 @@ export class GestionCategoriesComponent implements OnInit {
 
   confirmerSuppression() {
     if (this.categorieASupprimer) {
-      this.http.delete(`http://localhost:8080/api/categories/${this.categorieASupprimer}`).subscribe({
+      this.http.delete(`https://final-resto.onrender.com/api/categories/${this.categorieASupprimer}`).subscribe({
         next: () => {
           this.notificationService.success('Catégorie supprimée avec succès !');
           this.chargerCategories();

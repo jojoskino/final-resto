@@ -13,7 +13,7 @@ export interface Fournisseur {
   providedIn: 'root'
 })
 export class FournisseurService {
-  private apiUrl = 'http://localhost:8080/api/fournisseurs';
+  private apiUrl = 'https://final-resto.onrender.com/api/fournisseurs';
 
   constructor(private http: HttpClient) {}
 

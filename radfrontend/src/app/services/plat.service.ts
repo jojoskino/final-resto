@@ -19,7 +19,7 @@ export interface Plat {
   providedIn: 'root'
 })
 export class PlatService {
-  private apiUrl = 'http://localhost:8080/api/plats';
+  private apiUrl = 'https://final-resto.onrender.com/api/plats';
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class PlatService {
   }
 
   getAllCategories(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/api/categories');
+    return this.http.get<any[]>('https://final-resto.onrender.com/api/categories');
   }
 
   getCategories(): Observable<any[]> {

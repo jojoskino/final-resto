@@ -495,10 +495,10 @@ export class DashboardComponent implements OnInit {
   loadDashboardData() {
     this.loading = true;
     forkJoin({
-      plats: this.http.get<any[]>('http://localhost:8080/api/plats'),
-      commandes: this.http.get<any[]>('http://localhost:8080/api/commandes'),
-      clients: this.http.get<any[]>('http://localhost:8080/api/clients'),
-      stocks: this.http.get<any[]>('http://localhost:8080/api/stocks')
+      plats: this.http.get<any[]>('https://final-resto.onrender.com/api/plats'),
+      commandes: this.http.get<any[]>('https://final-resto.onrender.com/api/commandes'),
+      clients: this.http.get<any[]>('https://final-resto.onrender.com/api/clients'),
+      stocks: this.http.get<any[]>('https://final-resto.onrender.com/api/stocks')
     }).subscribe({
       next: (data) => {
         this.stats.plats = data.plats.length;

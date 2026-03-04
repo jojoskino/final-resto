@@ -604,7 +604,7 @@ export class MenuComponent implements OnInit {
 
   getPlatImage(plat: Plat): string {
     if (plat.imageUrl) {
-      return plat.imageUrl.startsWith('http') ? plat.imageUrl : `http://localhost:8080${plat.imageUrl}`;
+      return plat.imageUrl.startsWith('http') ? plat.imageUrl : `https://final-resto.onrender.com${plat.imageUrl}`;
     }
     return this.platImages[plat.nom] || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop';
   }

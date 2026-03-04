@@ -38,7 +38,7 @@ export interface ResumeFinancier {
   providedIn: 'root'
 })
 export class FinanceService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://final-resto.onrender.com/api';
   
   constructor(private http: HttpClient) {}
 

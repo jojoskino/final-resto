@@ -879,8 +879,8 @@ export class GestionPlatsComponent implements OnInit {
     }
     
     const url = this.platEdit 
-      ? `http://localhost:8080/api/plats/${this.platEdit.idPlat}`
-      : 'http://localhost:8080/api/plats';
+      ? `https://final-resto.onrender.com/api/plats/${this.platEdit.idPlat}`
+      : 'https://final-resto.onrender.com/api/plats';
     
     const request = this.platEdit 
       ? this.http.put<any>(url, platData)
@@ -908,7 +908,7 @@ export class GestionPlatsComponent implements OnInit {
 
   confirmerSuppression() {
     if (this.platASupprimer) {
-      this.http.delete(`http://localhost:8080/api/plats/${this.platASupprimer}`).subscribe({
+      this.http.delete(`https://final-resto.onrender.com/api/plats/${this.platASupprimer}`).subscribe({
         next: () => {
           this.notificationService.success('Plat supprimé avec succès !');
           this.chargerPlats();
@@ -943,9 +943,9 @@ export class GestionPlatsComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', file);
 
-    this.http.post<{imageUrl: string}>('http://localhost:8080/api/upload/image', formData).subscribe({
+    this.http.post<{imageUrl: string}>('https://final-resto.onrender.com/api/upload/image', formData).subscribe({
       next: (response) => {
-        this.formData.imageUrl = 'http://localhost:8080' + response.imageUrl;
+        this.formData.imageUrl = 'https://final-resto.onrender.com' + response.imageUrl;
         this.uploading = false;
         this.notificationService.success('Image uploadée avec succès !');
       },

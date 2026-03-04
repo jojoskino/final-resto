@@ -521,7 +521,7 @@ export class GestionFournisseursComponent implements OnInit {
 
   chargerFournisseurs() {
     this.loading = true;
-    this.http.get<any[]>('http://localhost:8080/api/fournisseurs').subscribe({
+    this.http.get<any[]>('https://final-resto.onrender.com/api/fournisseurs').subscribe({
       next: (data) => {
         this.fournisseurs = data || [];
         this.fournisseursFiltres = this.fournisseurs;
@@ -602,8 +602,8 @@ export class GestionFournisseursComponent implements OnInit {
 
     this.loading = true;
     const url = this.fournisseurEdit 
-      ? `http://localhost:8080/api/fournisseurs/${this.fournisseurEdit.idFournisseur}`
-      : 'http://localhost:8080/api/fournisseurs';
+      ? `https://final-resto.onrender.com/api/fournisseurs/${this.fournisseurEdit.idFournisseur}`
+      : 'https://final-resto.onrender.com/api/fournisseurs';
     
     const request = this.fournisseurEdit 
       ? this.http.put<any>(url, this.formData)
@@ -631,7 +631,7 @@ export class GestionFournisseursComponent implements OnInit {
 
   confirmerSuppression() {
     if (this.fournisseurASupprimer) {
-      this.http.delete(`http://localhost:8080/api/fournisseurs/${this.fournisseurASupprimer}`).subscribe({
+      this.http.delete(`https://final-resto.onrender.com/api/fournisseurs/${this.fournisseurASupprimer}`).subscribe({
         next: () => {
           this.notificationService.success('Fournisseur supprimé avec succès !');
           this.chargerFournisseurs();
